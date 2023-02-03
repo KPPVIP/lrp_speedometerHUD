@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<title>speedometer</title>
+<style id="applicationStylesheet" type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  animation: slide-in 1s forwards;
+}
+			*{
+				z-index : 99999999999;
+			}
+	@keyframes slide-in {
+    0% {
+        top: 20px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+	.mediaViewInfo {
+		--web-view-name: Canvas;
+		--web-view-id: Canvas;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: Canvas;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	.carStats {
+		position: absolute;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(0,0,0,0);
+		overflow: hidden;
+		--web-view-name: Canvas;
+		--web-view-id: Canvas;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	#Background {
+		position: absolute;
+		width: 520px;
+		height: 42px;
+		left: 700px;
+		top: 1017px;
+		overflow: visible;
+	}
+	#speedo {
+		position: absolute;
+		width: 468px;
+		height: 35px;
+		left: 725.69px;
+		top: 1018.5px;
+		overflow: visible;
+	}
+	#speedo_2 {
+		opacity: 0.6;
+		fill: rgba(19,19,19,1);
+		stroke: rgba(33,33,33,1);
+		stroke-width: 1.25px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.speedo_2 {
+		position: absolute;
+		overflow: visible;
+		width: 84px;
+		height: 30px;
+		left: 0px;
+		top: 3px;
+	}
+	#speedo_2_j {
+		opacity: 0.239;
+		fill: rgba(0,0,0,1);
+	}
+	.speedo_2_j {
+		position: absolute;
+		overflow: visible;
+		width: 21.59px;
+		height: 21.59px;
+		left: 6.4px;
+		top: 7.59px;
+	}
+	#MOTOR {
+		left: 37.058px;
+		top: 13.923px;
+		position: absolute;
+		overflow: visible;
+		width: 37px;
+		white-space: nowrap;
+		line-height: 16.4999942779541px;
+		margin-top: -3.4499969482421875px;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 9.600000381469727px;
+		color: rgba(163,163,163,1);
+	}
+	#engine {
+		position: absolute;
+		width: 14px;
+		height: 12px;
+		left: 10.31px;
+		top: 12.5px;
+		overflow: visible;
+	}
+	#speedo_2_m {
+		opacity: 0.6;
+		fill: rgba(19,19,19,1);
+		stroke: rgba(33,33,33,1);
+		stroke-width: 1.25px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.speedo_2_m {
+		position: absolute;
+		overflow: visible;
+		width: 84px;
+		height: 30px;
+		left: 96px;
+		top: 3px;
+	}
+	#speedo_2_n {
+		opacity: 0.239;
+		fill: rgba(0,0,0,1);
+	}
+	.speedo_2_n {
+		position: absolute;
+		overflow: visible;
+		width: 21.59px;
+		height: 21.59px;
+		left: 102.4px;
+		top: 7.59px;
+	}
+	#LOCK2 {
+		left: 138.058px;
+		top: 13.923px;
+		position: absolute;
+		overflow: visible;
+		width: 27px;
+		white-space: nowrap;
+		line-height: 16.4999942779541px;
+		margin-top: -3.4499969482421875px;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 9.600000381469727px;
+		color: rgba(163,163,163,1);
+	}
+	#lock {
+		position: absolute;
+		width: 12px;
+		height: 11px;
+		left: 108.31px;
+		top: 13.5px;
+		overflow: visible;
+	}
+	#speedo_2_q {
+		opacity: 0.6;
+		fill: rgba(19,19,19,1);
+		stroke: rgba(33,33,33,1);
+		stroke-width: 1.25px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.speedo_2_q {
+		position: absolute;
+		overflow: visible;
+		width: 84px;
+		height: 30px;
+		left: 288px;
+		top: 3px;
+	}
+	#speedo_2_r {
+		opacity: 0.239;
+		fill: rgba(0,0,0,1);
+	}
+	.speedo_2_r {
+		position: absolute;
+		overflow: visible;
+		width: 21.59px;
+		height: 21.59px;
+		left: 294.4px;
+		top: 7.59px;
+	}
+	#ID182_L {
+		left: 330.058px;
+		top: 13.923px;
+		position: absolute;
+		overflow: visible;
+		width: 27px;
+		white-space: nowrap;
+		line-height: 16.4999942779541px;
+		margin-top: -3.4499969482421875px;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 9.600000381469727px;
+		color: rgba(163,163,163,1);
+	}
+	#gas-pump-solid_1 {
+		position: absolute;
+		width: 11px;
+		height: 11px;
+		left: 300.31px;
+		top: 13.5px;
+		overflow: visible;
+	}
+	#speedo_2_u {
+		opacity: 0.6;
+		fill: rgba(19,19,19,1);
+		stroke: rgba(33,33,33,1);
+		stroke-width: 1.25px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.speedo_2_u {
+		position: absolute;
+		overflow: visible;
+		width: 84px;
+		height: 30px;
+		left: 384px;
+		top: 3px;
+	}
+	#speedo_2_v {
+		opacity: 0.239;
+		fill: rgba(0,0,0,1);
+	}
+	.speedo_2_v {
+		position: absolute;
+		overflow: visible;
+		width: 21.59px;
+		height: 21.59px;
+		left: 390.4px;
+		top: 7.59px;
+	}
+	#ID1032_KM {
+		left: 420.058px;
+		top: 14px;
+		position: absolute;
+		overflow: visible;
+		width: 41px;
+		white-space: nowrap;
+		line-height: 16.4999942779541px;
+		margin-top: -3.783327102661133px;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 8.933340072631836px;
+		color: rgba(163,163,163,1);
+	}
+	#map-marker-solid {
+		position: absolute;
+		width: 8px;
+		height: 11px;
+		left: 397.31px;
+		top: 13.5px;
+		overflow: visible;
+	}
+	#speedo_2_y {
+		opacity: 0.6;
+		fill: rgba(19,19,19,1);
+		stroke: rgba(33,33,33,1);
+		stroke-width: 1.25px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.speedo_2_y {
+		position: absolute;
+		overflow: visible;
+		width: 84px;
+		height: 35px;
+		left: 191.99px;
+		top: 0px;
+	}
+	#KMH {
+		left: 240.058px;
+		top: 15.123px;
+		position: absolute;
+		overflow: visible;
+		width: 27px;
+		white-space: nowrap;
+		line-height: 16.4999942779541px;
+		margin-top: -3.4499969482421875px;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 9.600000381469727px;
+		color: rgba(163,163,163,1);
+	}
+	.text {
+		left: 202.258px;
+		top: 4px;
+		position: absolute;
+		overflow: visible;
+		width: 33px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: 'Poppins', sans-serif;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 19.200000762939453px;
+		color: rgba(255,255,255,1);
+	}
+</style>
+<script id="applicationScript" type="text/javascript" src="rescale.js"></script>
+</head>
+<body>
+<div class="carStats" style="display: none;">
+	<img id="Background" src="https://cdn.discordapp.com/attachments/788240573382787114/835863019984650251/Background.png">
+		
+	<div id="speedo">
+		<svg class="speedo_2">
+			<rect id="speedo_2" rx="7" ry="7" x="0" y="0" width="84" height="30">
+			</rect>
+		</svg>
+		<svg class="speedo_2_j">
+			<rect id="speedo_2_j" rx="4" ry="4" x="0" y="0" width="21.59" height="21.59">
+			</rect>
+		</svg>
+		<div id="MOTOR">
+			<span>MOTOR</span>
+		</div>
+		<div class="wskazniki kolko" id="engine" style='background-image: url(https://cdn.discordapp.com/attachments/788240573382787114/835863078277087283/engine.png);'>
+		</div>
+			
+		<svg class="speedo_2_m">
+			<rect id="speedo_2_m" rx="7" ry="7" x="0" y="0" width="84" height="30">
+			</rect>
+		</svg>
+		<svg class="speedo_2_n">
+			<rect id="speedo_2_n" rx="4" ry="4" x="0" y="0" width="21.59" height="21.59">
+			</rect>
+		</svg>
+		<div id="LOCK2">
+			<span>LOCK</span>
+		</div>
+		<div class="wskazniki kolko" id="lock" style="background-image: url(https://cdn.discordapp.com/attachments/788240573382787114/835863196207677480/lock-open-solid_1.png);">
+		</div>
+			
+		<svg class="speedo_2_q">
+			<rect id="speedo_2_q" rx="7" ry="7" x="0" y="0" width="84" height="30">
+			</rect>
+		</svg>
+		<svg class="speedo_2_r">
+			<rect id="speedo_2_r" rx="4" ry="4" x="0" y="0" width="21.59" height="21.59">
+			</rect>
+		</svg>
+		<div id="ID182_L">
+			<p class="other" id="fueltext" class="fuel"></p>
+		</div>
+		<img id="gas-pump-solid_1" src="https://cdn.discordapp.com/attachments/788240573382787114/835863131443691560/gas-pump-solid_1.png">
+			
+		<svg class="speedo_2_u">
+			<rect id="speedo_2_u" rx="7" ry="7" x="0" y="0" width="84" height="30">
+			</rect>
+		</svg>
+		<svg class="speedo_2_v">
+			<rect id="speedo_2_v" rx="4" ry="4" x="0" y="0" width="21.59" height="21.59">
+			</rect>
+		</svg>
+		<div id="ID1032_KM">
+			<p class="other" id="kmtext" class="km">KM</p>
+		</div>
+		<img id="map-marker-solid" src="https://cdn.discordapp.com/attachments/788240573382787114/835863247474786304/map-marker-solid.png">
+			
+		<svg class="speedo_2_y">
+			<rect id="speedo_2_y" rx="7" ry="7" x="0" y="0" width="84" height="35">
+			</rect>
+		</svg>
+		<div id="KMH">
+			<span>KM/H</span>
+		</div>
+		<div class="speedometer">
+						<svg class="circle" width="100" height="100">
+
+							<circle class="progress progress-speed" stroke="url(#gradient)" stroke-width="2.5" style="stroke-opacity: 1;" fill="transparent" r="18" cx="25" cy="25" stroke-dasharray="70 30" stroke-dashoffset="0"/>
+							<defs>
+							</defs>
+						</svg>
+						<div class="text">
+							<span class="speed"></span>
+						</div>
+					</div>
+	</div>
+</div>
+</body>
+</html>
